@@ -15,6 +15,7 @@ export default new Vuex.Store({
   mutations: {
     setCoinData(state, data: any) {
       const coins: any = [];
+      if(data){
       data.forEach((element: any) => {
         const row: any = {};
         row["Icon"] =
@@ -29,5 +30,6 @@ export default new Vuex.Store({
       });
       state.coins = coins;
     }
+  }
   }
 });

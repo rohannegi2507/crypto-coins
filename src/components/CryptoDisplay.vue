@@ -55,6 +55,8 @@ export default class CryptoDisplay extends Vue {
   options = [10, 25, 50, 100];
 
   created() {
+    const result: any =  cryptoCurrencyService.getCyrptoCoins();
+    this.updateRow(result);
     this.filterColumn = [
       "index",
       {
@@ -79,17 +81,13 @@ export default class CryptoDisplay extends Vue {
     ];
   }
 
-  async getCoins() {
-    const result: any = await cryptoCurrencyService.getCyrptoCoins();
-    this.updateRow(result);
-  }
 
   get perPageRow() {
     return this.perPage;
   }
 
   updateRow(coinsData: any) {
-    store.commit("setCoinData", coinsData);
+   // store.commit("setCoinData", coinsData);
     this.items = store.getters.getCoinsData;
     this.rows = this.items.length;
   }

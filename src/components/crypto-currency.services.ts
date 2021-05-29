@@ -13,7 +13,7 @@ class CryptoCurrencyService {
     };
     try {
       const result = await axios.get(CryptoCurrencyService.baseUrl, config);
-      return result.data.coins;
+      return Promise.resolve(result.data.coins);
     } catch (e) {
       return Promise.reject(e);
     }
